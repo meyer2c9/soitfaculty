@@ -6,6 +6,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.soit.soitfaculty.model.Faculty;
@@ -46,4 +48,12 @@ public class FacultyController {
 	}
 	
 	//Mapping for "/list"
+	@GetMapping("/list")
+	public String listFaculties (Model theModel) {
+		
+		theModel.addAttribute ("faculties", "theFaculties");
+		
+		return "list-faculties";
+	}
+	
 }
